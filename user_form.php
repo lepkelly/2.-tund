@@ -2,7 +2,7 @@
 
 	// user_form.php
 	
-	//jutum�rkide vahele input elemendi NAME
+	//jutumärkide vahele input elemendi NAME
 	//echo $_POST["email"];
 	//echo $_POST["password"];
 	
@@ -13,16 +13,22 @@
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	
-		//Kontrollime kasutaja e-posti, et see ei ole t�hi
+		//Kontrollime kasutaja e-posti, et see ei ole tühi
 		if(empty($_POST["email"])) {
-			$email_error = "ei saa olla t�hi";
+			$email_error = "ei saa olla tühi";
 		}	
 		
 		//Kontrolli parooli
 		if(empty($_POST[password])) {
-			$email_error = "sisesta parool";
+			$password_error = "sisesta parool";
+		} else {
+			//Parool ei ole tühi, kontrollime pikkust
+			if(strlen($_POST["password"]) < 8 ){
+				
+				$password_error = "Peab olema vähemalt 8 sümbolit pikk";
+			}
 		}
-	
+	}
 ?>
 
 <html>
@@ -32,9 +38,9 @@
 	<body>
 	
 		<h2>Login</h2>
-		<form action="user_form.php" method="get">
+		<form action="user_form.php" method="post">
 			<input name="email" type= "email"  placeholder="E-post"> <?php echo $email_error;?>	<br> <br>
-			<input name="password" type= "password"  placeholder="parool">
+			<input name="password" type= "password"  placeholder="parool"> <?php echo $email_error;?> <br> <br>
 		
 			<input type="submit" value= "Logi sisse"> 
 		</form>
