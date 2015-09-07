@@ -7,6 +7,7 @@
 	//echo $_POST["password"];
 	
 	$email_error = "";
+	$password_error = "";
 	
 	
 	//Kontrolli ainult siis kui kasutaja vajutab logi sisse nuppu
@@ -19,7 +20,7 @@
 		}	
 		
 		//Kontrolli parooli
-		if(empty($_POST[password])) {
+		if(empty($_POST["password"])) {
 			$password_error = "sisesta parool";
 		} else {
 			//Parool ei ole tühi, kontrollime pikkust
@@ -39,11 +40,12 @@
 	
 		<h2>Login</h2>
 		<form action="user_form.php" method="post">
-			<input name="email" type= "email"  placeholder="E-post"> <?php echo $email_error;?>	<br> <br>
-			<input name="password" type= "password"  placeholder="parool"> <?php echo $email_error;?> <br> <br>
+			<input name="email" type= "email"  placeholder="E-post" >* <?php echo $email_error; ?> <br> <br>
+			<input name="password" type= "password"  placeholder="parool" >* <?php echo $password_error; ?> <br> <br>
 		
 			<input type="submit" value= "Logi sisse"> 
 		</form>
+		
 		<h2>Create user</h2>
 		
 	
