@@ -1,7 +1,7 @@
 <?php
 
-	$first_name = "Romil";
-	$last_name = "Rõbtðenkov";
+	$first_name = "Kelly";
+	$last_name = "Leppik";
 
 	//trükib välja
 	echo $first_name." ".$last_name;
@@ -21,5 +21,18 @@
 		echo "täisealine";
 	}
 
+
+?>
+
+<br>
+
+<?php
+
+	for($i = 0; $i < $age; $i = $i +1) {
+		// see, mida korratakse
+		echo "palju, ";
+	}
+	
+	echo "õnne" ;
 
 ?>
