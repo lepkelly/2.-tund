@@ -36,3 +36,11 @@
 	echo "õnne" ;
 
 ?>
+
+<br>
+
+<?php
+
+	// kuuäpev - date
+	echo date("l, j F Y");
+?>
